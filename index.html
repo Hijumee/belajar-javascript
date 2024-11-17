@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Button</title>
+    <style>
+        body {
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        #myButton {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">TEKAN SAYA</button>
+    <p id="message">HASIL SALAH!</p>
+    <script>
+        document.getElementById('myButton').addEventListener('click', function() {
+            var correctAnswer = 5 * 9;
+            var userAnswer = prompt("Hasil dari 5 * 9 = ");
+
+            if (parseInt(userAnswer) === correctAnswer) {
+                document.body.style.backgroundColor = 'purple';
+                this.style.display = 'none';
+
+                var img = document.createElement('img');
+                img.src = 'https://via.placeholder.com/150';
+                img.alt = 'Gambar contoh';
+                document.body.appendChild(img);
+            } else {
+                document.getElementById('message').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
